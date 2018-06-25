@@ -39,3 +39,9 @@ services:
         factory: ["@doctrine", getRepository]
         arguments:
             - AppBundle\Entity\ProductCatalog
+
+    cart_repository:
+        class: AppBundle\Repository\CartRepository
+        factory: ["@doctrine", getRepository]
+        arguments:
+            - AppBundle\Entity\Cart

@@ -1,8 +1,5 @@
 <?php
-
 namespace AppBundle\Repository;
-
-
 
 use AppBundle\Entity\ProductCatalog;
 use AppBundle\Utils\ProductCatalog\RequestValidator;
@@ -18,6 +15,14 @@ class ProductCatalogRepository extends \Doctrine\ORM\EntityRepository
            ->select('e')
            ->getQuery()
            ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
+    }
+
+    public function getProductById($productId){
+       return $this->createQueryBuilder('e')
+            ->select('e')
+            ->where('e.id = '.$productId)
+            ->getQuery()
+            ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY);
     }
 
     /**
