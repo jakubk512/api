@@ -78,11 +78,11 @@ class ProductCatalogController extends FOSRestController
      *   description="An error occured"
      * )
      */
-    public function deleteAction(Request $request)
+    public function deleteAction($productId)
     {
         try{
             $productCatalogRepo = $this->get('product_catalog_repository');
-            $productCatalogRepo->deleteProduct($request->get('productId'));
+            $productCatalogRepo->deleteProduct($productId);
 
             return new JsonResponse(['status' => true]);
 
